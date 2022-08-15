@@ -32,6 +32,17 @@ services:
       - postgres
     restart: unless-stopped
 
+  api:
+    container_name: backend_container
+    image: backend:latest
+    depends_on:
+      - postgres
+    ports:
+      - "8000:80"
+    networks:
+      - postgres
+    restart: unless-stopped
+
 networks:
   postgres:
     driver: bridge
