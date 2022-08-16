@@ -45,6 +45,7 @@ services:
       - NGINX_PORT=80
     networks:
       - postgres
+      - api
     restart: unless-stopped
 
   
@@ -58,10 +59,13 @@ services:
       - "8000:80"
     networks:
       - postgres
+      - api
     restart: unless-stopped
 
 networks:
   postgres:
+    driver: bridge
+  api:
     driver: bridge
 
 
