@@ -33,34 +33,34 @@ services:
     restart: unless-stopped
 
   
-  frontend:
-    container_name: frontend_container
-    image: frontend:latest
-    depends_on:
-      - api
-    ports:
-      - "80:80"
-    environment:
-      - NGINX_HOST=todo.com
-      - NGINX_PORT=80
-    networks:
-      - postgres
-      - api
-    restart: unless-stopped
+#  frontend:
+#    container_name: frontend_container
+#    image: frontend:latest
+#    depends_on:
+#      - api
+#    ports:
+#      - "80:80"
+#    environment:
+#      - NGINX_HOST=todo.com
+#      - NGINX_PORT=80
+#    networks:
+#      - postgres
+#      - api
+#    restart: unless-stopped
 
   
   
-  api:
-    container_name: backend_container
-    image: backend:latest
-    depends_on:
-      - postgres
-    ports:
-      - "8000:80"
-    networks:
-      - postgres
-      - api
-    restart: unless-stopped
+#  api:
+#    container_name: backend_container
+#    image: backend:latest
+#    depends_on:
+#      - postgres
+#    ports:
+#      - "8000:80"
+#    networks:
+#      - postgres
+#      - api
+#    restart: unless-stopped
 
 networks:
   postgres:
